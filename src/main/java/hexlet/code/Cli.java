@@ -1,15 +1,25 @@
 package hexlet.code;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 
 public class Cli {
-    public static void askAndHello(Scanner scIn) {
-        System.out.println("May I have your name?");
+    public static String askAndHello() {
 
-        String name = scIn.nextLine();
+        BufferedReader scAsk = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("May I have your name?");
+        String name = null;
+        try {
+            name = scAsk.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         System.out.println("Hello," + name);
 
+        return name;
     }
 
 }

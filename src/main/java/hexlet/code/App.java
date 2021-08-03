@@ -38,8 +38,8 @@ public class App {
             String nameUser = Cli.askAndHello();
             switch (choseUser) {
                 case 2:
-                    int howManyCorrectAnswer = 3;
-                    int maxRandomInt = 100;
+                    final int howManyCorrectAnswer = 3;
+                    final int maxRandomInt = 100;
                     Even.run(nameUser, howManyCorrectAnswer, maxRandomInt);
                 default:
             }

@@ -12,17 +12,12 @@ public class App {
         boolean exitWhile = false;
         while (!exitWhile) {
             System.out.println("Please enter the game number and press Enter.");
-            System.out.println("1 - Greet \n2 - Even \n3 - Calc \n0 - Exit");
+            System.out.println("1 - Greet \n2 - Even \n3 - Calc \n4 - GCD \n0 - Exit");
             if (sc.hasNextInt()) {
                 choseUser = sc.nextInt();
-                switch (choseUser) {
-                    case 0:
-                        exitWhile = true;
-                        exit = true;
-                        break;
-                    default:
-                        exitWhile = true;
-                        break;
+                exitWhile = true;
+                if (choseUser == 0) {
+                    exit = true;
                 }
             } else {
                 System.out.println("Это не число программа будет завершена");
@@ -40,6 +35,8 @@ public class App {
                     Engine.run(nameUser, GamesEnum.Even);
                 case "3":
                     Engine.run(nameUser, GamesEnum.Calc);
+                case "4":
+                    Engine.run(nameUser, GamesEnum.GCD);
                 default:
             }
 

@@ -1,6 +1,6 @@
 package hexlet.code;
 
-import hexlet.code.games.Even;
+import hexlet.code.games.GamesEnum;
 
 import java.util.Scanner;
 
@@ -11,7 +11,8 @@ public class App {
         boolean exit = false;
         boolean exitWhile = false;
         while (!exitWhile) {
-            System.out.println("Please enter the game number and press Enter. \n1 - Greet \n2 - Even \n0 - Exit");
+            System.out.println("Please enter the game number and press Enter.");
+            System.out.println("1 - Greet \n2 - Even \n3 - Calc \n0 - Exit");
             if (sc.hasNextInt()) {
                 choseUser = sc.nextInt();
                 switch (choseUser) {
@@ -19,11 +20,9 @@ public class App {
                         exitWhile = true;
                         exit = true;
                         break;
-                    case 1:
-                    case 2:
+                    default:
                         exitWhile = true;
                         break;
-                    default:
                 }
             } else {
                 System.out.println("Это не число программа будет завершена");
@@ -36,11 +35,11 @@ public class App {
 
             System.out.println("Welcome to the Brain Games!");
             String nameUser = Cli.askAndHello();
-            switch (choseUser) {
-                case 2:
-                    final int howManyCorrectAnswer = 3;
-                    final int maxRandomInt = 100;
-                    Even.run(nameUser, howManyCorrectAnswer, maxRandomInt);
+            switch ((Integer.toString(choseUser))) {
+                case "2":
+                    Engine.run(nameUser, GamesEnum.Even);
+                case "3":
+                    Engine.run(nameUser, GamesEnum.Calc);
                 default:
             }
 

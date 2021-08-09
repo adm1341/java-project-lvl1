@@ -3,6 +3,7 @@ package hexlet.code;
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
 import hexlet.code.games.GCD;
+import hexlet.code.games.Progression;
 import hexlet.code.games.GamesEnum;
 
 import java.io.BufferedReader;
@@ -20,12 +21,15 @@ public class Engine {
         boolean isEven = gamesEnum.equals(GamesEnum.Even);
         boolean isCalc = gamesEnum.equals(GamesEnum.Calc);
         boolean isGCD = gamesEnum.equals(GamesEnum.GCD);
+        boolean isProgression = gamesEnum.equals(GamesEnum.Progression);
         if (isEven) {
             System.out.println("Answer 'yes' if number even otherwise answer 'no'.");
         } else if (isCalc) {
             System.out.println(" What is the result of the expression?");
         } else if (isGCD) {
             System.out.println("Find the greatest common divisor of given numbers.");
+        } else if (isProgression) {
+            System.out.println("What number is missing in the progression?");
         }
         int correctAn = 0;
 
@@ -41,6 +45,8 @@ public class Engine {
                 returnCheck = Calc.checkRuleCalc(playerName);
             } else if (isGCD) {
                 returnCheck = GCD.checkRuleGCD(playerName);
+            } else if (isProgression) {
+                returnCheck = Progression.checkRuleProgression(playerName);
             }
             if (returnCheck) {
                 System.out.println("Correct!");

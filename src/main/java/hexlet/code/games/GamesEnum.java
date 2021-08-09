@@ -1,5 +1,5 @@
 package hexlet.code.games;
 
 public enum GamesEnum {
-    Even, Calc, GCD, Progression
+    Even, Calc, GCD, Progression, Prime
 }

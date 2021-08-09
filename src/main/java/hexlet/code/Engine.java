@@ -3,8 +3,9 @@ package hexlet.code;
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
 import hexlet.code.games.GCD;
-import hexlet.code.games.Progression;
 import hexlet.code.games.GamesEnum;
+import hexlet.code.games.Prime;
+import hexlet.code.games.Progression;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -22,6 +23,7 @@ public class Engine {
         boolean isCalc = gamesEnum.equals(GamesEnum.Calc);
         boolean isGCD = gamesEnum.equals(GamesEnum.GCD);
         boolean isProgression = gamesEnum.equals(GamesEnum.Progression);
+        boolean isPrime = gamesEnum.equals(GamesEnum.Prime);
         if (isEven) {
             System.out.println("Answer 'yes' if number even otherwise answer 'no'.");
         } else if (isCalc) {
@@ -30,6 +32,8 @@ public class Engine {
             System.out.println("Find the greatest common divisor of given numbers.");
         } else if (isProgression) {
             System.out.println("What number is missing in the progression?");
+        } else if (isPrime) {
+            System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
         }
         int correctAn = 0;
 
@@ -47,6 +51,8 @@ public class Engine {
                 returnCheck = GCD.checkRuleGCD(playerName);
             } else if (isProgression) {
                 returnCheck = Progression.checkRuleProgression(playerName);
+            } else if (isPrime) {
+                returnCheck = Prime.checkRulePrime(playerName);
             }
             if (returnCheck) {
                 System.out.println("Correct!");
@@ -72,5 +78,14 @@ public class Engine {
             e.printStackTrace();
         }
         return inPut;
+    }
+
+    public static String getBooleanOfString(boolean bool) {
+        if (bool) {
+            return "yes";
+        } else {
+            return "no";
+        }
+
     }
 }

@@ -8,6 +8,6 @@ lint:
 		./gradlew checkstyleMain
 clean:
 		./gradlew clean
-build:	clean
+build:
 		./gradlew build
 .PHONY: build

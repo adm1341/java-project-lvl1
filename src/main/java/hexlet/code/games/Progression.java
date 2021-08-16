@@ -12,7 +12,7 @@ public class Progression {
         int progLength = randomOfRange(MIN_LENGTH_PROG, MAX_LENGTH_PROG);
         int indexAnswer = randomOfRange(0, progLength);
         StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append("Question: ");
+        stringBuffer.append("Question:");
         for (int i = 0; progLength >= i; i++) {
             if (i != indexAnswer) {
                 stringBuffer.append(" " + calcProgression(beginNumber, i, difNumber));

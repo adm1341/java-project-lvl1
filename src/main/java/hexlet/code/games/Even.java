@@ -17,7 +17,7 @@ public class Even {
             return true;
         } else {
             System.out.println(inPut + " is wrong answer ;(. Correct answer was " + Engine.getBooleanOfString(even));
-            System.out.println("Let's try again, " + playerName);
+            System.out.println("Let's try again, " + playerName + "!");
             return false;
         }
     }

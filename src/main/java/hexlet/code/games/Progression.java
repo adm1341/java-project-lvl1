@@ -3,7 +3,7 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Progression {
-    static final int MAX_LENGTH_PROG = 10;
+    static final int MAX_LENGTH_PROG = 9;
     static final int MIN_LENGTH_PROG = 5;
 
     public static boolean checkRuleProgression(String playerName) {

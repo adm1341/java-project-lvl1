@@ -6,7 +6,8 @@ check-updates:
 		 ./gradlew dependencyUpdates
 lint:
 		./gradlew checkstyleMain
-build:
+clean:
 		./gradlew clean
+build:	clean
 		./gradlew build
 .PHONY: build

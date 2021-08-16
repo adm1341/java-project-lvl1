@@ -22,6 +22,7 @@ public class App {
             isInt = true;
         }
         if (isInt) {
+            System.out.println();
             System.out.println("Welcome to the Brain Games!");
             String nameUser = "";
             int correctAn = 0;

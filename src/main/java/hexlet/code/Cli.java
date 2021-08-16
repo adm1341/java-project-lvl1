@@ -17,7 +17,7 @@ public class Cli {
             e.printStackTrace();
         }
 
-        System.out.println("Hello, " + name+"!");
+        System.out.println("Hello, " + name + "!");
 
         return name;
     }

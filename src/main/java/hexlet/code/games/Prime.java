@@ -9,7 +9,7 @@ public class Prime {
         int randomInt = Engine.getRandomInt();
         System.out.println("Question: " + randomInt);
         boolean isPrime = isPrime(randomInt);
-        System.out.print("Your answer: " );
+        System.out.print("Your answer: ");
         String inPut = Engine.getInputKey();
 
 

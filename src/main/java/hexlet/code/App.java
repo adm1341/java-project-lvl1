@@ -38,7 +38,7 @@ public class App {
 
                     while (true) {
                         if (correctAn == HOW_MANY_CORRECT_ANSWER) {
-                            System.out.println("Congratulations, " + nameUser);
+                            System.out.println("Congratulations, " + nameUser + "!");
                             break;
                         }
                         boolean returnCheck;
@@ -56,7 +56,7 @@ public class App {
                     System.out.println(" What is the result of the expression?");
                     while (true) {
                         if (correctAn == HOW_MANY_CORRECT_ANSWER) {
-                            System.out.println("Congratulations, " + nameUser);
+                            System.out.println("Congratulations, " + nameUser + "!");
                             break;
                         }
                         boolean returnCheck;
@@ -74,7 +74,7 @@ public class App {
                     System.out.println("Find the greatest common divisor of given numbers.");
                     while (true) {
                         if (correctAn == HOW_MANY_CORRECT_ANSWER) {
-                            System.out.println("Congratulations, " + nameUser);
+                            System.out.println("Congratulations, " + nameUser + "!");
                             break;
                         }
                         boolean returnCheck;
@@ -92,7 +92,7 @@ public class App {
                     System.out.println("What number is missing in the progression?");
                     while (true) {
                         if (correctAn == HOW_MANY_CORRECT_ANSWER) {
-                            System.out.println("Congratulations, " + nameUser);
+                            System.out.println("Congratulations, " + nameUser + "!");
                             break;
                         }
                         boolean returnCheck;
@@ -110,7 +110,7 @@ public class App {
                     System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
                     while (true) {
                         if (correctAn == HOW_MANY_CORRECT_ANSWER) {
-                            System.out.println("Congratulations, " + nameUser);
+                            System.out.println("Congratulations, " + nameUser + "!");
                             break;
                         }
                         boolean returnCheck;

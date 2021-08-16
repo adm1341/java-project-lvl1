@@ -1,7 +1,7 @@
 install:
 	./gradlew install
 run-dist:
-	./build/install/app/bin/app
+	./build/install/java-project-lvl1/bin
 check-updates:
 	 ./gradlew dependencyUpdates
 lint:

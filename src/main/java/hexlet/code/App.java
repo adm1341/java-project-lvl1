@@ -16,13 +16,12 @@ public class App {
         Scanner sc = new Scanner(System.in);
         boolean isInt = false;
         printMenu();
-
+        System.out.print("Your choice: ");
         if (sc.hasNextInt()) {
             choseUser = sc.nextInt();
             isInt = true;
         }
         if (isInt) {
-            System.out.println("Your choice: " + choseUser);
             System.out.println("Welcome to the Brain Games!");
             String nameUser = "";
             int correctAn = 0;

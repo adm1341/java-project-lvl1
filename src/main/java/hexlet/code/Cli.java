@@ -9,7 +9,7 @@ public class Cli {
     public static String askAndHello() {
 
         BufferedReader scAsk = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("May I have your name?");
+        System.out.print("May I have your name?");
         String name = null;
         try {
             name = scAsk.readLine();

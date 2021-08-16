@@ -17,8 +17,9 @@ public class Calc {
 
         System.out.println("Question: " + randomInt1 + getOperationOfString(randomOperation) + randomInt2);
         int correctAnswer = getCorrectAnswer(randomInt1, randomInt2, randomOperation);
+        System.out.print("Your answer: ");
         String inPut = Engine.getInputKey();
-        System.out.println("Your answer: " + inPut);
+
 
         if (inPut.equals(Integer.toString(correctAnswer))) {
             return true;

@@ -11,8 +11,8 @@ public class GCD {
 
         System.out.println("Question: " + randomInt1 + " " + randomInt2);
         int correctAnswer = mostCommonMultiple(randomInt1, randomInt2);
+        System.out.print("Your answer: ");
         String inPut = Engine.getInputKey();
-        System.out.println("Your answer: " + inPut);
 
         if (inPut.equals(Integer.toString(correctAnswer))) {
             return true;

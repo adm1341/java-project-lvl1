@@ -10,8 +10,8 @@ public class Even {
         randomInt = Engine.getRandomInt();
         System.out.println("Question: " + randomInt);
         boolean even = randomInt % 2 == 0;
+        System.out.print("Your answer: ");
         String inPut = Engine.getInputKey();
-        System.out.println("Your answer: " + inPut);
 
         if (inPut.equals("yes") && even || inPut.equals("no") && !even) {
             return true;

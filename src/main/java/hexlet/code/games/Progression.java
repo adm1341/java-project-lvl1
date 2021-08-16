@@ -22,8 +22,9 @@ public class Progression {
         }
         System.out.println(stringBuffer);
         int correctAnswer = calcProgression(beginNumber, indexAnswer, difNumber);
+        System.out.print("Your answer: ");
         String inPut = Engine.getInputKey();
-        System.out.println("Your answer: " + inPut);
+
 
         if (inPut.equals(Integer.toString(correctAnswer))) {
             return true;

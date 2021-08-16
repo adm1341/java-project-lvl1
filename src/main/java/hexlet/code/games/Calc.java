@@ -15,7 +15,7 @@ public class Calc {
         randomInt2 = Engine.getRandomInt();
         randomOperation = getRandomOperation();
 
-        System.out.println("Question: " + randomInt1 + getOperationOfString(randomOperation) + randomInt2);
+        System.out.println("Question: " + randomInt1 + " " + getOperationOfString(randomOperation) + " " + randomInt2);
         int correctAnswer = getCorrectAnswer(randomInt1, randomInt2, randomOperation);
         System.out.print("Your answer: ");
         String inPut = Engine.getInputKey();

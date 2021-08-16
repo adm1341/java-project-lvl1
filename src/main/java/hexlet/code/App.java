@@ -1,50 +1,146 @@
 package hexlet.code;
 
-import hexlet.code.games.GamesEnum;
+import hexlet.code.games.Calc;
+import hexlet.code.games.Even;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Prime;
+import hexlet.code.games.Progression;
 
 import java.util.Scanner;
 
 public class App {
+    static final int HOW_MANY_CORRECT_ANSWER = 3;
+
     public static void main(String[] args) {
         int choseUser = 0;
         Scanner sc = new Scanner(System.in);
-        boolean exit = false;
-        boolean exitWhile = false;
-        while (!exitWhile) {
-            System.out.println("Please enter the game number and press Enter.");
-            System.out.println("1 - Greet \n2 - Even \n3 - Calc \n4 - GCD \n5 - Progression \n6 - Prime \n0 - Exit");
-            if (sc.hasNextInt()) {
-                choseUser = sc.nextInt();
-                exitWhile = true;
-                if (choseUser == 0) {
-                    exit = true;
-                }
-            } else {
-                System.out.println("Это не число программа будет завершена");
-                exitWhile = true;
-                exit = true;
-            }
-        }
-        System.out.println("Your choice: " + choseUser);
-        if (!exit) {
+        boolean isInt = false;
+        printMenu();
 
+        if (sc.hasNextInt()) {
+            choseUser = sc.nextInt();
+            isInt = true;
+        }
+        if (isInt) {
+            System.out.println("Your choice: " + choseUser);
             System.out.println("Welcome to the Brain Games!");
-            String nameUser = Cli.askAndHello();
+            String nameUser = "";
+            int correctAn = 0;
             switch ((Integer.toString(choseUser))) {
+                case "0":
+                    break;
+                case "1":
+                    nameUser = Cli.askAndHello();
+                    break;
                 case "2":
-                    Engine.run(nameUser, GamesEnum.Even);
+                    nameUser = Cli.askAndHello();
+                    System.out.println("Answer 'yes' if number even otherwise answer 'no'.");
+
+                    while (true) {
+                        if (correctAn == HOW_MANY_CORRECT_ANSWER) {
+                            System.out.println("Congratulations, " + nameUser);
+                            break;
+                        }
+                        boolean returnCheck;
+                        returnCheck = Even.checkRuleEven(nameUser);
+                        if (returnCheck) {
+                            System.out.println("Correct!");
+                            correctAn += 1;
+                        } else {
+                            break;
+                        }
+                    }
+                    break;
                 case "3":
-                    Engine.run(nameUser, GamesEnum.Calc);
+                    nameUser = Cli.askAndHello();
+                    System.out.println(" What is the result of the expression?");
+                    while (true) {
+                        if (correctAn == HOW_MANY_CORRECT_ANSWER) {
+                            System.out.println("Congratulations, " + nameUser);
+                            break;
+                        }
+                        boolean returnCheck;
+                        returnCheck = Calc.checkRuleCalc(nameUser);
+                        if (returnCheck) {
+                            System.out.println("Correct!");
+                            correctAn += 1;
+                        } else {
+                            break;
+                        }
+                    }
+                    break;
                 case "4":
-                    Engine.run(nameUser, GamesEnum.GCD);
+                    nameUser = Cli.askAndHello();
+                    System.out.println("Find the greatest common divisor of given numbers.");
+                    while (true) {
+                        if (correctAn == HOW_MANY_CORRECT_ANSWER) {
+                            System.out.println("Congratulations, " + nameUser);
+                            break;
+                        }
+                        boolean returnCheck;
+                        returnCheck = GCD.checkRuleGCD(nameUser);
+                        if (returnCheck) {
+                            System.out.println("Correct!");
+                            correctAn += 1;
+                        } else {
+                            break;
+                        }
+                    }
+                    break;
                 case "5":
-                    Engine.run(nameUser, GamesEnum.Progression);
+                    nameUser = Cli.askAndHello();
+                    System.out.println("What number is missing in the progression?");
+                    while (true) {
+                        if (correctAn == HOW_MANY_CORRECT_ANSWER) {
+                            System.out.println("Congratulations, " + nameUser);
+                            break;
+                        }
+                        boolean returnCheck;
+                        returnCheck = Progression.checkRuleProgression(nameUser);
+                        if (returnCheck) {
+                            System.out.println("Correct!");
+                            correctAn += 1;
+                        } else {
+                            break;
+                        }
+                    }
+                    break;
                 case "6":
-                    Engine.run(nameUser, GamesEnum.Prime);
+                    nameUser = Cli.askAndHello();
+                    System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+                    while (true) {
+                        if (correctAn == HOW_MANY_CORRECT_ANSWER) {
+                            System.out.println("Congratulations, " + nameUser);
+                            break;
+                        }
+                        boolean returnCheck;
+                        returnCheck = Prime.checkRulePrime(nameUser);
+                        if (returnCheck) {
+                            System.out.println("Correct!");
+                            correctAn += 1;
+                        } else {
+                            break;
+                        }
+                    }
+                    break;
                 default:
+                    System.out.println("Неверное значение.");
             }
 
 
+        } else {
+            System.out.println("Неверное значение.");
         }
+    }
+
+    private static void printMenu() {
+        System.out.println("Please enter the game number and press Enter.");
+        System.out.println("1 - Greet");
+        System.out.println("2 - Even");
+        System.out.println("3 - Calc");
+        System.out.println("4 - GCD");
+        System.out.println("5 - Progression");
+        System.out.println("6 - Prime");
+        System.out.println("0 - Exit");
     }
 }

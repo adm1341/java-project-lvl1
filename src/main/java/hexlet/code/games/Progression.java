@@ -8,7 +8,7 @@ public class Progression {
 
     public static boolean checkRuleProgression(String playerName) {
         int beginNumber = Engine.getRandomInt();
-        int difNumber = Engine.getRandomInt();
+        int difNumber = Engine.getRandomIn10();
         int progLength = randomOfRange(MIN_LENGTH_PROG, MAX_LENGTH_PROG);
         int indexAnswer = randomOfRange(0, progLength);
         StringBuffer stringBuffer = new StringBuffer();

@@ -4,8 +4,27 @@ import hexlet.code.Engine;
 
 import java.util.Random;
 
+import static hexlet.code.Engine.checkWin;
+import static hexlet.code.Engine.sayCorrect;
+
 public class Calc {
     static final int HOW_MANY_OPERATION = 3;
+
+    public static void run(int correctAn, String nameUser) {
+        System.out.println("Answer 'yes' if number even otherwise answer 'no'.");
+
+        while (true) {
+            if (checkWin(correctAn, nameUser)) {
+                break;
+            }
+            if (checkRuleCalc(nameUser)) {
+                sayCorrect();
+                correctAn += 1;
+            } else {
+                break;
+            }
+        }
+    }
 
     public static boolean checkRuleCalc(String playerName) {
         int randomInt1 = 0;

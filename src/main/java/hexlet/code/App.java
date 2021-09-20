@@ -8,9 +8,6 @@ import hexlet.code.games.Progression;
 
 import java.util.Scanner;
 
-import static hexlet.code.Engine.checkWin;
-import static hexlet.code.Engine.sayCorrect;
-
 public class App {
 
 
@@ -32,79 +29,23 @@ public class App {
                 break;
             case "2":
                 nameUser = Cli.askAndHello();
-                System.out.println("Answer 'yes' if number even otherwise answer 'no'.");
-
-                while (true) {
-                    if (checkWin(correctAn, nameUser)) {
-                        break;
-                    }
-                    if (Even.checkRuleEven(nameUser)) {
-                        sayCorrect();
-                        correctAn += 1;
-                    } else {
-                        break;
-                    }
-                }
+                Even.run(correctAn, nameUser);
                 break;
             case "3":
                 nameUser = Cli.askAndHello();
-                System.out.println(" What is the result of the expression?");
-                while (true) {
-                    if (checkWin(correctAn, nameUser)) {
-                        break;
-                    }
-                    if (Calc.checkRuleCalc(nameUser)) {
-                        sayCorrect();
-                        correctAn += 1;
-                    } else {
-                        break;
-                    }
-                }
+                Calc.run(correctAn, nameUser);
                 break;
             case "4":
                 nameUser = Cli.askAndHello();
-                System.out.println("Find the greatest common divisor of given numbers.");
-                while (true) {
-                    if (checkWin(correctAn, nameUser)) {
-                        break;
-                    }
-                    if (GCD.checkRuleGCD(nameUser)) {
-                        sayCorrect();
-                        correctAn += 1;
-                    } else {
-                        break;
-                    }
-                }
+                GCD.run(correctAn, nameUser);
                 break;
             case "5":
                 nameUser = Cli.askAndHello();
-                System.out.println("What number is missing in the progression?");
-                while (true) {
-                    if (checkWin(correctAn, nameUser)) {
-                        break;
-                    }
-                    if (Progression.checkRuleProgression(nameUser)) {
-                        sayCorrect();
-                        correctAn += 1;
-                    } else {
-                        break;
-                    }
-                }
+                Progression.run(correctAn, nameUser);
                 break;
             case "6":
                 nameUser = Cli.askAndHello();
-                System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-                while (true) {
-                    if (checkWin(correctAn, nameUser)) {
-                        break;
-                    }
-                    if (Prime.checkRulePrime(nameUser)) {
-                        sayCorrect();
-                        correctAn += 1;
-                    } else {
-                        break;
-                    }
-                }
+                Prime.run(correctAn, nameUser);
                 break;
             default:
                 System.out.println("Неверное значение.");

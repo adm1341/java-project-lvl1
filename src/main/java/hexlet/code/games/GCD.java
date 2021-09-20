@@ -2,7 +2,25 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
+import static hexlet.code.Engine.checkWin;
+import static hexlet.code.Engine.sayCorrect;
+
 public class GCD {
+    public static void run(int correctAn, String nameUser) {
+        System.out.println("Find the greatest common divisor of given numbers.");
+        while (true) {
+            if (checkWin(correctAn, nameUser)) {
+                break;
+            }
+            if (checkRuleGCD(nameUser)) {
+                sayCorrect();
+                correctAn += 1;
+            } else {
+                break;
+            }
+        }
+    }
+
     public static boolean checkRuleGCD(String playerName) {
         int randomInt1 = 0;
         int randomInt2 = 0;

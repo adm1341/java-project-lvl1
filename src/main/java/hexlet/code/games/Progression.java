@@ -2,9 +2,27 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
+import static hexlet.code.Engine.checkWin;
+import static hexlet.code.Engine.sayCorrect;
+
 public class Progression {
     static final int MAX_LENGTH_PROG = 9;
     static final int MIN_LENGTH_PROG = 5;
+
+    public static void run(int correctAn, String nameUser) {
+        System.out.println("What number is missing in the progression?");
+        while (true) {
+            if (checkWin(correctAn, nameUser)) {
+                break;
+            }
+            if (checkRuleProgression(nameUser)) {
+                sayCorrect();
+                correctAn += 1;
+            } else {
+                break;
+            }
+        }
+    }
 
     public static boolean checkRuleProgression(String playerName) {
         int beginNumber = Engine.getRandomIn10();

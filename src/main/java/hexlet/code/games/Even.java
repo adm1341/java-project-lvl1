@@ -2,8 +2,26 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
+import static hexlet.code.Engine.checkWin;
+import static hexlet.code.Engine.sayCorrect;
+
 public class Even {
 
+
+    public static void run(int correctAn, String nameUser) {
+        System.out.println(" What is the result of the expression?");
+        while (true) {
+            if (checkWin(correctAn, nameUser)) {
+                break;
+            }
+            if (checkRuleEven(nameUser)) {
+                sayCorrect();
+                correctAn += 1;
+            } else {
+                break;
+            }
+        }
+    }
 
     public static boolean checkRuleEven(String playerName) {
         int randomInt = 0;

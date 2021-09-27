@@ -3,43 +3,37 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 import java.math.BigInteger;
+import java.util.HashMap;
+import java.util.Map;
 
-import static hexlet.code.Engine.checkWin;
-import static hexlet.code.Engine.sayCorrect;
+import static hexlet.code.Engine.runInGame;
+import static hexlet.code.Engine.sayString;
 
 public class Prime {
+    static final int HOW_MANY_QUESTION_GENERATE = 50;
 
     public static void run(int correctAn, String nameUser) {
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+        sayString("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+        runInGame(generateQuestion(), correctAn, nameUser);
+    }
+
+    public static Map<String, String> generateQuestion() {
+        int questionGenerate = 0;
+        Map<String, String> returnMap = new HashMap<>();
         while (true) {
-            if (checkWin(correctAn, nameUser)) {
+            if (questionGenerate == HOW_MANY_QUESTION_GENERATE) {
                 break;
             }
-            if (checkRulePrime(nameUser)) {
-                sayCorrect();
-                correctAn += 1;
-            } else {
-                break;
-            }
+            int randomInt = Engine.getRandomInt();
+            String question = "Question: " + randomInt;
+            boolean isPrime = isPrime(randomInt);
+
+            returnMap.put(question, Engine.getBooleanOfString(isPrime));
+            questionGenerate += 1;
         }
+        return returnMap;
     }
 
-    public static boolean checkRulePrime(String playerName) {
-        int randomInt = Engine.getRandomInt();
-        System.out.println("Question: " + randomInt);
-        boolean isPrime = isPrime(randomInt);
-        System.out.print("Your answer: ");
-        String inPut = Engine.getInputKey();
-
-
-        if (inPut.equals("yes") && isPrime || inPut.equals("no") && !isPrime) {
-            return true;
-        } else {
-            System.out.println(inPut + " is wrong answer ;(. Correct answer was " + Engine.getBooleanOfString(isPrime));
-            System.out.println("Let's try again, " + playerName + "!");
-            return false;
-        }
-    }
 
     private static boolean isPrime(int num) {
         Integer integer = num;

@@ -12,40 +12,32 @@ public class App {
 
 
     public static void main(String[] args) {
-        String choseUser = "";
         Scanner sc = new Scanner(System.in);
         printMenu();
         System.out.print("Your choice: ");
-        choseUser = sc.next();
+        final String choseUser = sc.next();
         System.out.println();
         System.out.println("Welcome to the Brain Games!");
-        String nameUser = "";
-        int correctAn = 0;
         switch (choseUser) {
             case "0":
                 break;
             case "1":
-                nameUser = Cli.askAndHello();
+                String nameUser = Cli.askAndHello();
                 break;
             case "2":
-                nameUser = Cli.askAndHello();
-                Even.run(correctAn, nameUser);
+                Even.run();
                 break;
             case "3":
-                nameUser = Cli.askAndHello();
-                Calc.run(correctAn, nameUser);
+                Calc.run();
                 break;
             case "4":
-                nameUser = Cli.askAndHello();
-                GCD.run(correctAn, nameUser);
+                GCD.run();
                 break;
             case "5":
-                nameUser = Cli.askAndHello();
-                Progression.run(correctAn, nameUser);
+                Progression.run();
                 break;
             case "6":
-                nameUser = Cli.askAndHello();
-                Prime.run(correctAn, nameUser);
+                Prime.run();
                 break;
             default:
                 System.out.println("Неверное значение.");

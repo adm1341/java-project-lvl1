@@ -10,7 +10,11 @@ public class Engine {
     static final int MAX_RANDOM10_INT = 10;
     static final int HOW_MANY_CORRECT_ANSWER = 3;
 
-    public static void runInGame(Map<String, String> mapQuestion, int correctAn, String nameUser) {
+    public static void runInGame(Map<String, String> mapQuestion, String ruleString) {
+        final String nameUser = askAndHelloEngine();
+        sayRule(ruleString);
+
+        int correctAn = 0;
         for (Map.Entry<String, String> entry : mapQuestion.entrySet()) {
             if (checkWin(correctAn, nameUser)) {
                 break;
@@ -50,10 +54,8 @@ public class Engine {
     }
 
     public static String getInputKey() {
-        String inPut = "";
         Scanner sc = new Scanner(System.in);
-        inPut = sc.next();
-        return inPut;
+        return sc.next();
     }
 
     public static boolean checkWin(int correctAn, String nameUser) {
@@ -64,11 +66,19 @@ public class Engine {
         return false;
     }
 
+    public static String askAndHelloEngine() {
+        System.out.print("May I have your name? ");
+        Scanner sc = new Scanner(System.in);
+        String name = sc.next();
+        System.out.println("Hello, " + name + "!");
+        return name;
+    }
+
     public static void sayCorrect() {
         System.out.println("Correct!");
     }
 
-    public static void sayString(String str) {
+    public static void sayRule(String str) {
         System.out.println(str);
     }
 

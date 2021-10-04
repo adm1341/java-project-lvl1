@@ -7,37 +7,31 @@ import java.util.Map;
 import java.util.Random;
 
 import static hexlet.code.Engine.runInGame;
-import static hexlet.code.Engine.sayString;
 
 public class Calc {
     static final int HOW_MANY_OPERATION = 3;
-    static final int HOW_MANY_QUESTION_GENERATE = 50;
+    static final int HOW_MANY_QUESTION_GENERATE = 3;
 
-    public static void run(int correctAn, String nameUser) {
-        sayString(" What is the result of the expression?");
-        runInGame(generateQuestion(), correctAn, nameUser);
+    public static void run() {
+        final String ruleString = (" What is the result of the expression?");
+        runInGame(generateQuestion(), ruleString);
 
     }
 
     public static Map<String, String> generateQuestion() {
-        int questionGenerate = 0;
         Map<String, String> returnMap = new HashMap<>();
-        while (true) {
-            if (questionGenerate == HOW_MANY_QUESTION_GENERATE) {
-                break;
-            }
-            int randomInt1 = 0;
-            int randomInt2 = 0;
-            int randomOperation = 0;
-            randomInt1 = Engine.getRandomInt();
-            randomInt2 = Engine.getRandomInt();
-            randomOperation = getRandomOperation();
+        for (int questionGenerate = 0; questionGenerate <= HOW_MANY_QUESTION_GENERATE; questionGenerate++) {
+            final int randomInt1 = Engine.getRandomInt();
+            final int randomInt2 = Engine.getRandomInt();
+            final int randomOperation = getRandomOperation();
             int correctAnswer = getCorrectAnswer(randomInt1, randomInt2, randomOperation);
-            String question;
-            question = "Question: " + randomInt1 + " " + getOperationOfString(randomOperation) + " " + randomInt2;
+            String question = new StringBuilder().append("Question: ")
+                    .append(randomInt1).append(" ")
+                    .append(getOperationOfString(randomOperation))
+                    .append(" ")
+                    .append(randomInt2).toString();
             returnMap.put(question, String.valueOf(correctAnswer));
 
-            questionGenerate += 1;
         }
         return returnMap;
     }

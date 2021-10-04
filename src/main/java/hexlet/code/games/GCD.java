@@ -6,31 +6,25 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static hexlet.code.Engine.runInGame;
-import static hexlet.code.Engine.sayString;
 
 public class GCD {
-    static final int HOW_MANY_QUESTION_GENERATE = 50;
+    static final int HOW_MANY_QUESTION_GENERATE = 3;
 
-    public static void run(int correctAn, String nameUser) {
-        sayString("Find the greatest common divisor of given numbers.");
-        runInGame(generateQuestion(), correctAn, nameUser);
+    public static void run() {
+        final String ruleString = ("Find the greatest common divisor of given numbers.");
+        runInGame(generateQuestion(), ruleString);
     }
 
     public static Map<String, String> generateQuestion() {
-        int questionGenerate = 0;
+
         Map<String, String> returnMap = new HashMap<>();
-        while (true) {
-            if (questionGenerate == HOW_MANY_QUESTION_GENERATE) {
-                break;
-            }
-            int randomInt1 = 0;
-            int randomInt2 = 0;
-            randomInt1 = Engine.getRandomInt();
-            randomInt2 = Engine.getRandomInt();
-            String question = "Question: " + randomInt1 + " " + randomInt2;
-            int correctAnswer = mostCommonMultiple(randomInt1, randomInt2);
+        for (int questionGenerate = 0; questionGenerate <= HOW_MANY_QUESTION_GENERATE; questionGenerate++) {
+
+            final int randomInt1 = Engine.getRandomInt();
+            final int randomInt2 = Engine.getRandomInt();
+            final String question = "Question: " + randomInt1 + " " + randomInt2;
+            final int correctAnswer = mostCommonMultiple(randomInt1, randomInt2);
             returnMap.put(question, String.valueOf(correctAnswer));
-            questionGenerate += 1;
         }
         return returnMap;
     }

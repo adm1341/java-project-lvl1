@@ -6,34 +6,31 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static hexlet.code.Engine.runInGame;
-import static hexlet.code.Engine.sayString;
 
 public class Progression {
     static final int MAX_LENGTH_PROG = 9;
     static final int MIN_LENGTH_PROG = 5;
-    static final int HOW_MANY_QUESTION_GENERATE = 50;
+    static final int HOW_MANY_QUESTION_GENERATE = 3;
 
-    public static void run(int correctAn, String nameUser) {
-        sayString("What number is missing in the progression?");
-        runInGame(generateQuestion(), correctAn, nameUser);
+    public static void run() {
+        final String ruleString = ("What number is missing in the progression?");
+        runInGame(generateQuestion(), ruleString);
     }
 
     public static Map<String, String> generateQuestion() {
-        int questionGenerate = 0;
+
         Map<String, String> returnMap = new HashMap<>();
-        while (true) {
-            if (questionGenerate == HOW_MANY_QUESTION_GENERATE) {
-                break;
-            }
+        for (int questionGenerate = 0; questionGenerate <= HOW_MANY_QUESTION_GENERATE; questionGenerate++) {
+
             int beginNumber = Engine.getRandomIn10();
             int difNumber = Engine.getRandomIn10();
             int progLength = randomOfRange(MIN_LENGTH_PROG, MAX_LENGTH_PROG);
             int indexAnswer = randomOfRange(0, progLength);
-            StringBuffer stringBuffer = new StringBuffer();
+            StringBuilder stringBuffer = new StringBuilder();
             stringBuffer.append("Question:");
             for (int i = 0; progLength >= i; i++) {
                 if (i != indexAnswer) {
-                    stringBuffer.append(" " + calcProgression(beginNumber, i, difNumber));
+                    stringBuffer.append(" ").append(calcProgression(beginNumber, i, difNumber));
                 } else {
                     stringBuffer.append(" ..");
                 }
@@ -41,8 +38,6 @@ public class Progression {
             int correctAnswer = calcProgression(beginNumber, indexAnswer, difNumber);
             returnMap.put(stringBuffer.toString(), String.valueOf(correctAnswer));
 
-
-            questionGenerate += 1;
         }
         return returnMap;
     }

@@ -1,6 +1,6 @@
 package hexlet.code.games;
 
-import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,10 +18,10 @@ public class GCD {
     public static Map<String, String> generateQuestion() {
 
         Map<String, String> returnMap = new HashMap<>();
-        for (int questionGenerate = 0; questionGenerate <= HOW_MANY_QUESTION_GENERATE; questionGenerate++) {
+        for (int questionGenerate = 0; questionGenerate < HOW_MANY_QUESTION_GENERATE; questionGenerate++) {
 
-            final int randomInt1 = Engine.getRandomInt();
-            final int randomInt2 = Engine.getRandomInt();
+            final int randomInt1 = Utils.getRandomInt();
+            final int randomInt2 = Utils.getRandomInt();
             final String question = "Question: " + randomInt1 + " " + randomInt2;
             final int correctAnswer = mostCommonMultiple(randomInt1, randomInt2);
             returnMap.put(question, String.valueOf(correctAnswer));

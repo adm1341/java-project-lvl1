@@ -1,6 +1,6 @@
 package hexlet.code.games;
 
-import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -20,9 +20,9 @@ public class Calc {
 
     public static Map<String, String> generateQuestion() {
         Map<String, String> returnMap = new HashMap<>();
-        for (int questionGenerate = 0; questionGenerate <= HOW_MANY_QUESTION_GENERATE; questionGenerate++) {
-            final int randomInt1 = Engine.getRandomInt();
-            final int randomInt2 = Engine.getRandomInt();
+        for (int questionGenerate = 0; questionGenerate < HOW_MANY_QUESTION_GENERATE; questionGenerate++) {
+            final int randomInt1 = Utils.getRandomInt();
+            final int randomInt2 = Utils.getRandomInt();
             final int randomOperation = getRandomOperation();
             int correctAnswer = getCorrectAnswer(randomInt1, randomInt2, randomOperation);
             String question = new StringBuilder().append("Question: ")

@@ -1,6 +1,6 @@
 package hexlet.code.games;
 
-import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 import java.math.BigInteger;
 import java.util.HashMap;
@@ -19,12 +19,12 @@ public class Prime {
     public static Map<String, String> generateQuestion() {
 
         Map<String, String> returnMap = new HashMap<>();
-        for (int questionGenerate = 0; questionGenerate <= HOW_MANY_QUESTION_GENERATE; questionGenerate++) {
-            final int randomInt = Engine.getRandomInt();
+        for (int questionGenerate = 0; questionGenerate < HOW_MANY_QUESTION_GENERATE; questionGenerate++) {
+            final int randomInt = Utils.getRandomInt();
             final String question = "Question: " + randomInt;
             boolean isPrime = isPrime(randomInt);
 
-            returnMap.put(question, Engine.getBooleanOfString(isPrime));
+            returnMap.put(question, Utils.getBooleanOfString(isPrime));
         }
         return returnMap;
     }

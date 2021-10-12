@@ -1,38 +1,36 @@
 package hexlet.code;
 
 import java.util.Map;
-import java.util.Random;
 import java.util.Scanner;
 
 
 public class Engine {
-    static final int MAX_RANDOM_INT = 100;
-    static final int MAX_RANDOM10_INT = 10;
-    static final int HOW_MANY_CORRECT_ANSWER = 3;
+    public static boolean runInGame(Map<String, String> mapQuestion, String ruleString) {
+        System.out.print("May I have your name? ");
+        Scanner sc = new Scanner(System.in);
+        final String nameUser = sc.next();
+        System.out.println("Hello, " + nameUser + "!");
 
-    public static void runInGame(Map<String, String> mapQuestion, String ruleString) {
-        final String nameUser = askAndHelloEngine();
-        sayRule(ruleString);
+        System.out.println(ruleString);
 
-        int correctAn = 0;
         for (Map.Entry<String, String> entry : mapQuestion.entrySet()) {
-            if (checkWin(correctAn, nameUser)) {
-                break;
-            }
             if (checkRule(nameUser, entry.getKey(), entry.getValue())) {
-                sayCorrect();
-                correctAn += 1;
+                System.out.println("Correct!");
             } else {
-                break;
+                return false;
             }
         }
+        System.out.println("Congratulations, " + nameUser + "!");
+
+        return true;
     }
 
     public static boolean checkRule(String nameUser, String question, String correctAnswer) {
 
         System.out.println(question);
         System.out.print("Your answer: ");
-        String inPut = Engine.getInputKey();
+        Scanner sc = new Scanner(System.in);
+        String inPut = sc.next();
 
         if (inPut.equals(correctAnswer)) {
             return true;
@@ -43,51 +41,4 @@ public class Engine {
         }
     }
 
-    public static int getRandomInt() {
-        Random r = new Random();
-        return r.nextInt(MAX_RANDOM_INT);
-    }
-
-    public static int getRandomIn10() {
-        Random r = new Random();
-        return r.nextInt(MAX_RANDOM10_INT);
-    }
-
-    public static String getInputKey() {
-        Scanner sc = new Scanner(System.in);
-        return sc.next();
-    }
-
-    public static boolean checkWin(int correctAn, String nameUser) {
-        if (correctAn == HOW_MANY_CORRECT_ANSWER) {
-            System.out.println("Congratulations, " + nameUser + "!");
-            return true;
-        }
-        return false;
-    }
-
-    public static String askAndHelloEngine() {
-        System.out.print("May I have your name? ");
-        Scanner sc = new Scanner(System.in);
-        String name = sc.next();
-        System.out.println("Hello, " + name + "!");
-        return name;
-    }
-
-    public static void sayCorrect() {
-        System.out.println("Correct!");
-    }
-
-    public static void sayRule(String str) {
-        System.out.println(str);
-    }
-
-    public static String getBooleanOfString(boolean bool) {
-        if (bool) {
-            return "yes";
-        } else {
-            return "no";
-        }
-
-    }
 }

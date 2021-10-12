@@ -1,6 +1,6 @@
 package hexlet.code.games;
 
-import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -20,10 +20,10 @@ public class Progression {
     public static Map<String, String> generateQuestion() {
 
         Map<String, String> returnMap = new HashMap<>();
-        for (int questionGenerate = 0; questionGenerate <= HOW_MANY_QUESTION_GENERATE; questionGenerate++) {
+        for (int questionGenerate = 0; questionGenerate < HOW_MANY_QUESTION_GENERATE; questionGenerate++) {
 
-            int beginNumber = Engine.getRandomIn10();
-            int difNumber = Engine.getRandomIn10();
+            int beginNumber = Utils.getRandomIn10();
+            int difNumber = Utils.getRandomIn10();
             int progLength = randomOfRange(MIN_LENGTH_PROG, MAX_LENGTH_PROG);
             int indexAnswer = randomOfRange(0, progLength);
             StringBuilder stringBuffer = new StringBuilder();

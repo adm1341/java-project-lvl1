@@ -1,6 +1,6 @@
 package hexlet.code.games;
 
-import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,10 +21,10 @@ public class Even {
 
         Map<String, String> returnMap = new HashMap<>();
 
-        for (int questionGenerate = 0; questionGenerate <= HOW_MANY_QUESTION_GENERATE; questionGenerate++) {
-            final int randomInt = Engine.getRandomInt();
+        for (int questionGenerate = 0; questionGenerate < HOW_MANY_QUESTION_GENERATE; questionGenerate++) {
+            final int randomInt = Utils.getRandomInt();
             boolean even = randomInt % 2 == 0;
-            returnMap.put("Question: " + randomInt, Engine.getBooleanOfString(even));
+            returnMap.put("Question: " + randomInt, Utils.getBooleanOfString(even));
         }
 
         return returnMap;

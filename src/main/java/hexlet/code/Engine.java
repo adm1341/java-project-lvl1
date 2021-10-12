@@ -14,9 +14,17 @@ public class Engine {
         System.out.println(ruleString);
 
         for (Map.Entry<String, String> entry : mapQuestion.entrySet()) {
-            if (checkRule(nameUser, entry.getKey(), entry.getValue())) {
+
+            System.out.println(entry.getKey());
+            System.out.print("Your answer: ");
+            Scanner scanner = new Scanner(System.in);
+            String inPut = scanner.next();
+
+            if (inPut.equals(entry.getValue())) {
                 System.out.println("Correct!");
             } else {
+                System.out.println(inPut + " is wrong answer ;(. Correct answer was " + entry.getValue());
+                System.out.println("Let's try again, " + nameUser + "!");
                 return false;
             }
         }
@@ -25,20 +33,5 @@ public class Engine {
         return true;
     }
 
-    public static boolean checkRule(String nameUser, String question, String correctAnswer) {
-
-        System.out.println(question);
-        System.out.print("Your answer: ");
-        Scanner sc = new Scanner(System.in);
-        String inPut = sc.next();
-
-        if (inPut.equals(correctAnswer)) {
-            return true;
-        } else {
-            System.out.println(inPut + " is wrong answer ;(. Correct answer was " + correctAnswer);
-            System.out.println("Let's try again, " + nameUser + "!");
-            return false;
-        }
-    }
 
 }

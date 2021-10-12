@@ -31,6 +31,9 @@ public class Prime {
 
 
     private static boolean isPrime(int num) {
+        if (num == 0) {
+            return false;
+        }
         BigInteger bigInteger = BigInteger.valueOf(num);
         return bigInteger.isProbablePrime((int) Math.log(num));
     }

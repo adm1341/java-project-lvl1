@@ -6,8 +6,7 @@ public class Utils {
     static final int MAX_RANDOM_INT = 100;
 
     public static int getRandomInt() {
-        Random r = new Random();
-        return r.nextInt(MAX_RANDOM_INT);
+        return getRandomInt(MAX_RANDOM_INT);
     }
 
     public static int getRandomInt(int maxInt) {

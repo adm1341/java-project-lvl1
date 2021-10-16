@@ -9,27 +9,28 @@ import static hexlet.code.Engine.runInGame;
 
 public class GCD {
     static final int HOW_MANY_QUESTION_GENERATE = 3;
+    static final String RULE_GAME = "Find the greatest common divisor of given numbers.";
 
     public static void run() {
-        final String ruleString = ("Find the greatest common divisor of given numbers.");
-        runInGame(generateQuestion(), ruleString);
-    }
-
-    public static Map<String, String> generateQuestion() {
-
         Map<String, String> returnMap = new HashMap<>();
         for (int questionGenerate = 0; questionGenerate < HOW_MANY_QUESTION_GENERATE; questionGenerate++) {
 
             final int randomInt1 = Utils.getRandomInt();
             final int randomInt2 = Utils.getRandomInt();
-            final String question = "Question: " + randomInt1 + " " + randomInt2;
-            final int correctAnswer = mostCommonMultiple(randomInt1, randomInt2);
+
+            final int correctAnswer = generateAnswer(randomInt1, randomInt2);
+            final String question = generateQuestion(randomInt1, randomInt2);
             returnMap.put(question, String.valueOf(correctAnswer));
+
         }
-        return returnMap;
+        runInGame(returnMap, RULE_GAME);
     }
 
-    private static int mostCommonMultiple(int x, int y) {
+    public static String generateQuestion(int randomInt1, int randomInt2) {
+        return "Question: " + randomInt1 + " " + randomInt2;
+    }
+
+    private static int generateAnswer(int x, int y) {
         while (x != 0 && y != 0) {
             if (x > y) {
                 x = x % y;

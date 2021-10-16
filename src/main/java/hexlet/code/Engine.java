@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 
 public class Engine {
-    public static boolean runInGame(Map<String, String> mapQuestion, String ruleString) {
+    public static void runInGame(Map<String, String> mapQuestion, String ruleString) {
         System.out.print("May I have your name? ");
         Scanner sc = new Scanner(System.in);
         final String nameUser = sc.next();
@@ -25,12 +25,10 @@ public class Engine {
             } else {
                 System.out.println(inPut + " is wrong answer ;(. Correct answer was " + entry.getValue());
                 System.out.println("Let's try again, " + nameUser + "!");
-                return false;
+                return;
             }
         }
         System.out.println("Congratulations, " + nameUser + "!");
-
-        return true;
     }
 
 

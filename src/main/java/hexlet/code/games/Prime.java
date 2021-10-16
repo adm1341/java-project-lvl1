@@ -10,27 +10,26 @@ import static hexlet.code.Engine.runInGame;
 
 public class Prime {
     static final int HOW_MANY_QUESTION_GENERATE = 3;
+    static final String RULE_GAME = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
     public static void run() {
-        final String ruleString = ("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-        runInGame(generateQuestion(), ruleString);
-    }
-
-    public static Map<String, String> generateQuestion() {
-
         Map<String, String> returnMap = new HashMap<>();
         for (int questionGenerate = 0; questionGenerate < HOW_MANY_QUESTION_GENERATE; questionGenerate++) {
             final int randomInt = Utils.getRandomInt();
-            final String question = "Question: " + randomInt;
-            boolean isPrime = isPrime(randomInt);
+            final String question = generateQuestion(randomInt);
+            boolean isPrime = generateAnswer(randomInt);
 
-            returnMap.put(question, Utils.getBooleanOfString(isPrime));
+            returnMap.put(question, Utils.booleanToString(isPrime));
         }
-        return returnMap;
+        runInGame(returnMap, RULE_GAME);
+    }
+
+    public static String generateQuestion(int randomInt) {
+        return "Question: " + randomInt;
     }
 
 
-    private static boolean isPrime(int num) {
+    private static boolean generateAnswer(int num) {
         if (num == 0) {
             return false;
         }

@@ -9,28 +9,26 @@ import static hexlet.code.Engine.runInGame;
 
 public class Even {
     static final int HOW_MANY_QUESTION_GENERATE = 3;
+    static final String RULE_GAME = "Answer 'yes' if number even otherwise answer 'no'.";
 
     public static void run() {
-        final String ruleString = ("Answer 'yes' if number even otherwise answer 'no'.");
-
-        runInGame(generateQuestion(), ruleString);
-
-    }
-
-    public static Map<String, String> generateQuestion() {
-
         Map<String, String> returnMap = new HashMap<>();
 
         for (int questionGenerate = 0; questionGenerate < HOW_MANY_QUESTION_GENERATE; questionGenerate++) {
             final int randomInt = Utils.getRandomInt();
-            boolean even = randomInt % 2 == 0;
-            returnMap.put("Question: " + randomInt, Utils.getBooleanOfString(even));
+            String correctAnswer = Utils.booleanToString(generateAnswer(randomInt));
+            String question = generateQuestion(randomInt);
+            returnMap.put(question, correctAnswer);
         }
-
-        return returnMap;
-
-
+        runInGame(returnMap, RULE_GAME);
     }
 
+    public static String generateQuestion(int randomInt) {
+        return "Question: " + randomInt;
+    }
+
+    private static boolean generateAnswer(int randomInt) {
+        return randomInt % 2 == 0;
+    }
 
 }
